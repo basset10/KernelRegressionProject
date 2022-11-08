@@ -1,5 +1,12 @@
 # KernelRegressionProject
 
+Introduction
+Methodology
+Experiment - About experiment , data set(Lets ask professor on how many data sets result should we publish), separation of data for training and testing
+Results on different data set - 
+                               Use different kernel functions like linear, polynomial, Gaussina /RBF
+Conclusion
+References
 
 
 
