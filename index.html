@@ -218,16 +218,17 @@ and sensitivity parameters discussed above. We will conclude with a comparative 
 the four different kernel functions provided in R.</p>
 </div>
 <div id="methods" class="section level2">
-<h2>Methodology</h2>
+<h2>Methods</h2>
 <p>The Nadaraya-Watson Kernel estimator, used in this study, is written as follows:
        
        </p>
        <img src="NadarayaWatson.png" alt="NadarayaWatson" class="center">
-       <p>Where <span class="math inline">x</span> and <span class="math inline">y</span> represent the pair of variables for which a non-linear relationship is tested.
-       <span class="math inline">\(K_h\)</span> represents a weighting kernel with bandwidth h. The bandwidth value will affect the smoothing of the model and is estimated by balancing the bias-variance tradeoff
+       <p>Where <i>x</i> and <i>y</i> represent the pair of variables for which a non-linear relationship is tested.
+       <span class="math inline">\(K_h\)</span> represents a weighting kernel with bandwidth <i>h</i>. The bandwidth value will affect the smoothing of the model and is estimated by balancing the bias-variance tradeoff
        of the model. There are several methods of accomplishing this. One possible method is through unbiased cross validation, as shown below:</p>
       <img src="UBCV.png" alt="UnbiasedCrossValidation" class="center">
-       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded. The optimal bandwidth value will be determined through the lowest resulting error result of the cross-validation formuala. </p>
+       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded. The optimal bandwidth value will be determined through the lowest resulting error value of the formuala. </p>
+       <p>
        
 </div>
 <div id="data-and-vizualisation" class="section level3">
