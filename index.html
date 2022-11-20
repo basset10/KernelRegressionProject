@@ -223,14 +223,12 @@ the four different kernel functions provided in R.</p>
        
        </p>
        <img src="NadarayaWatson.png" alt="NadarayaWatson" class="center">
-       <p>Where <span class="math inline">\(x)\</span> and <span class="math inline">\(y)\</span> represent the pair of variables for which a non-linear relationship is tested.
-       <span class="math inline">\(K_h\)</span></p>
+       <p>Where <span class="math inline">x</span> and <span class="math inline">y</span> represent the pair of variables for which a non-linear relationship is tested.
+       <span class="math inline">\(K_h\)</span> represents a weighting kernel with bandwidth h. The bandwidth value will affect the smoothing of the model and is estimated by balancing the bias-variance tradeoff
+       of the model. There are several methods of accomplishing this. One possible method is through unbiased cross validation, as shown below:</p>
+      <img src="UBCV.png" alt="UnbiasedCrossValidation" class="center">
+       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded. The optimal bandwidth value will be determined through the lowest resulting error result of the cross-validation formuala. </p>
        
-<br />
-<p>The common non-parametric regression model is <span class="math inline">\(Y_i = m(X_i) + \varepsilon_i\)</span>, where <span class="math inline">\(Y_i\)</span> can be defined as the sum of the regression function value <span class="math inline">\(m(x)\)</span> for <span class="math inline">\(X_i\)</span>. Here <span class="math inline">\(m(x)\)</span> is unknown and <span class="math inline">\(\varepsilon_i\)</span> some errors. With the help of this definition, we can create the estimation for local averaging i.e. <span class="math inline">\(m(x)\)</span> can be estimated with the product of <span class="math inline">\(Y_i\)</span> average and <span class="math inline">\(X_i\)</span> is near to <span class="math inline">\(x\)</span>. In other words, this means that we are discovering the line through the data points with the help of surrounding data points. The estimation formula is printed below <span class="citation">(R Core Team 2019)</span>:</p>
-<p><span class="math display">\[
-M_n(x) = \sum_{i=1}^{n} W_n (X_i) Y_i  \tag{1}
-\]</span> <span class="math inline">\(W_n(x)\)</span> is the sum of weights that belongs to all real numbers. Weights are positive numbers and small if <span class="math inline">\(X_i\)</span> is far from <span class="math inline">\(x\)</span>.</p>
 </div>
 <div id="data-and-vizualisation" class="section level3">
 <h3>Data and Vizualisation</h3>
