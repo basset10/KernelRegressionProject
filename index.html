@@ -227,8 +227,11 @@ the four different kernel functions provided in R.</p>
        <span class="math inline">\(K_h\)</span> represents a weighting kernel with bandwidth <i>h</i>. The bandwidth value will affect the smoothing of the model and is estimated by balancing the bias-variance tradeoff
        of the model. There are several methods of accomplishing this. One possible method is through unbiased cross validation, as shown below:</p>
       <img src="ubcv2.png" alt="UnbiasedCrossValidation" class="center">
-       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded. The optimal bandwidth value will be determined through the lowest resulting error value of the formula. </p>
-       <p>Kernel SVM</p>
+       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded (leave-one-out). The optimal bandwidth value will be determined through the lowest resulting error value of the formula. </p>
+       <p>A kernel SVM is used in the second part of this study. Sensitivity and regularization parameters, 
+              <i>c</i> and γ, will be determined through the use of k-fold cross validation. Through this procedure, the data sample is shuffled and split into <i>k</i>
+        number of folds A fold is selected as the test set and a selected model is fit and evaluated using the data. The optimal value of k is that of which the model's variance is minimized.</p>
+       <p>These methods are examined and executed through the use of R code in the following section.</p>
        
 </div>
 <div id="data-and-vizualisation" class="section level3">
