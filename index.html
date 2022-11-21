@@ -229,9 +229,18 @@ the four different kernel functions provided in R.</p>
       <img src="ubcv2.png" alt="UnbiasedCrossValidation" class="center">
        <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded (leave-one-out). The optimal bandwidth value will be determined through the lowest resulting error value of the formula. </p>
        <p>A kernel SVM is used in the second part of this study. Sensitivity and regularization parameters, 
-              <i>c</i> and γ, will be determined through the use of k-fold cross validation. Through this procedure, the data sample is shuffled and split into <i>k</i>
-        number of folds A fold is selected as the test set and a selected model is fit and evaluated using the data. The optimal value of k is that of which the model's variance is minimized.</p>
-       <p>These methods are examined and executed through the use of R code in the following section.</p>
+              <i>c</i> and γ, will be determined through the use of k-fold cross validation. This process is further broken down into four steps (Brownlee, 2020):</p>
+       <ol>
+              <li>Randomize the order of the dataset</li>
+              <li>Divide the dataset into <i>k</i> groups</li>
+              <li>For each group:</li>
+              <ul>
+                     <li>Isolate the selected group as the testing set</li>
+                     <li>Designate the remaining groups as the training set<li>
+                     <li>Fit a model using the training set and evaluate using the testing set</li>
+              </ul>
+              <li>Retain and compare each model's evaluation score</li>
+       </ol>
        
 </div>
 <div id="data-and-vizualisation" class="section level3">
@@ -563,6 +572,9 @@ Blundell, R., & Duncan, A. (1998). Kernel regression in empirical microeconomics
               Resources</i>, 62-87.</p>
 <p>Wainer, J., & Cawley, G. (2017). Empirical evaluation of resampling procedures for optimising SVM
               hyperparameters. <i>Journal of Machine Learning Research</i>, 18(15), 1-35.</p>
+       <p>
+              Brownlee, J. (2020, August 2). An Introduction to k-Fold Cross-Validation. MachineLearningMastery.com. Retrieved November 21, 2022, from https://machinelearningmastery.com/k-fold-cross-validation/ 
+       </p>
 <p>Demir, S., & Toktamiş, Ö. (2010). On the adaptive Nadaraya-Watson kernel regression
               estimators. <i>Hacettepe Journal of Mathematics and Statistics</i>, 39(3), 429-437.</p>
 </div>
