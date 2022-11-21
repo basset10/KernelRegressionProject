@@ -236,11 +236,15 @@ the four different kernel functions provided in R.</p>
               <li>For each group:</li>
               <ul>
                      <li>Isolate the selected group as the testing set</li>
-                     <li>Designate the remaining groups as the training set<li>
+                     <li>Designate the remaining groups as the training set</li>
                      <li>Fit a model using the training set and evaluate using the testing set</li>
               </ul>
               <li>Retain and compare each model's evaluation score</li>
        </ol>
+       
+       <p>The optimal value of k is that of which the model's variance is minimized. There is no formal choice for this value, and typically k=10 is used.</p>
+       
+       <p>These methods are examined and executed through the use of R code in the following section.</p>
        
 </div>
 <div id="data-and-vizualisation" class="section level3">
