@@ -228,17 +228,17 @@ for estimating unknown parameters of a regression function and is suitable for t
 
 where the data comes from a joint probability distribution function, f (x, y). The non-
 parametric regression model for NW method is</p>
-       <img src="NWNP1.png" alt="NadarayaWatson" class="center">
-       <img src="NWNP2.png" alt="NadarayaWatson" class="center">
+       <img src="NWNP1.png" alt="NadarayaWatson" class="center" width="200" height="60">
+       <img src="NWNP2.png" alt="NadarayaWatson" class="center" width="200" height="60">
        <p>Where m (.) is unknown, Yi is the sum of the regression function value m(Xi) for Xi andpredicted error value is zero.
 f (x, y) is the joint density function of (X, Y) and f(x) is the marginal density function of f(x). An
 estimation of this regression function can be taken as</p>  
- <img src="Estimation.png" alt="Regression" class="center">
+ <img src="Estimation.png" alt="Regression" class="center" width="200" height="60">
        <p>Using kernel estimation k(.), we have nonparametric kernel estimation of regression.</p>
-        <img src="estimation2.png" alt="Regression" class="center">
+        <img src="estimation2.png" alt="Regression" class="center" width="200" height="60">
        <p>Using bivariate kernel function and substituting different smoothing parameters (h1, h2) with
 single fixed smoothing parameter (h) we get the NW kernel estimator of regression.</p>
-               <img src="regression.png" alt="Regression" class="center">
+               <img src="regression.png" alt="Regression" class="center" width="200" height="60">
        <p>Smoothing level of estimation also known as bandwidth (h) plays a very important role in the performance of the kernel estimators. 
               The commonly used methods for deciding h are cross-
               validation, penalized functions, and bootstrap. (Demir & Toktamiş, 2010)</p>
@@ -252,15 +252,15 @@ Kernel Trick. A Kernel trick is a method where a non-linear data is projected on
 dimension space to make it easier to classify the data where it could be linearly divided by a
 plane (Karatzoglou, Meyer, & Hornik, 2006). SVMs use an implicit mapping Φ of the input data 
               into a high-dimensional feature space. The common classification model is</p>
-                      <img src="svm.png" alt="SVM" class="center">
+                      <img src="svm.png" alt="SVM" class="center" width="200" height="60">
        <p class="center"><i>Where b is the bias of the model.</i></p>
        <p>Solving the subsequent constrained optimization and creating decision boundary, we get</p>
-                             <img src="svm2.png" alt="SVM" class="center">
-       <img src="svm3.png" alt="SVM" class="center">
+                             <img src="svm2.png" alt="SVM" class="center" width="200" height="60">
+       <img src="svm3.png" alt="SVM" class="center" width="200" height="60">
        <p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers.
 Firstly, we need to find decision boundary for linearly separable plane and then solve with
               Lagrange multipliers. We get following equation,</p>
-              <img src="svm4.png" alt="SVM" class="center">
+              <img src="svm4.png" alt="SVM" class="center" width="200" height="60">
 <p>As there are different types of kernel function for different type of data, picking right kernel and
        parameters can be the challenge for SVMs.</p>
        <h3>Types of Kernel function</h3>
@@ -268,25 +268,25 @@ Firstly, we need to find decision boundary for linearly separable plane and then
        <p>1. Linear Kernel Function</p>
        <p>The linear kernel is the basic and useful when dealing with large sparse data vectors. Linear
               Kernel is the inner product of two vectors. The equation is:</p>
-                     <img src="linearkernel.png" alt="Linear Kernel" class="center">
+                     <img src="linearkernel.png" alt="Linear Kernel" class="center" width="200" height="60">
        <p class="center"><i>Where c is the constant.</i></p>
        <p>2. Polynomial Kernel Function</p>
        <p>The polynomial kernel is commonly used function with SVMs. It represents kernels with a
 degree of more than one. It helps on learning of non-linear models and suitable for image
               processing. (Vidvan, 2020). There are two types of polynomials:</p>
        <p>Homogenous Polynomial Kernel Function</p>
-                            <img src="Homogenous.png" alt="Homogenous" class="center">
+                            <img src="Homogenous.png" alt="Homogenous" class="center" width="200" height="60" >
         <p class="center"><i>Where d is the degree of the polynomial.</i></p>
        <p>Inhomogeneous Polynomial Kernel Function</p>
-                                   <img src="inhomogenous.png" alt="Inhomogenous" class="center">
+                                   <img src="inhomogenous.png" alt="Inhomogenous" class="center" width="200" height="60">
         <p class="center"><i>Where c is a constant and d is degree of polynomial.</i></p>
        <p>3. Gaussian RBF Kernel Function</p>
        <p>Gaussian RBF is used when there is no prior knowledge about the data.</p>
-                                          <img src="Gaussian.png" alt="Gaussian" class="center">
+                                          <img src="Gaussian.png" alt="Gaussian" class="center" width="200" height="60">
         <p class="center"><i>Where γ is parameter to optimize.</i></p>
        <p>4. Sigmoid Kernel Function</p>
        <p>This is mainly used in neural networks. We can show this as:</p>
-                                                 <img src="Sigmoid.png" alt="Sigmoid" class="center">
+                                                 <img src="Sigmoid.png" alt="Sigmoid" class="center" width="200" height="60">
                <p class="center"><i>Where h and c are parameters to optimize.</i></p>
 
 
