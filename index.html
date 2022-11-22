@@ -288,20 +288,6 @@ degree of more than one. It helps on learning of non-linear models and suitable 
                                                  <img src="Sigmoid.png" alt="Sigmoid" class="center">
                <p class="center"><i>Where h and c are parameters to optimize.</i></p>
 
-
-
-
-
-       
-       
-       
-       
-
-
-       
-
-
-
        
 </div>
 <div id="Analysis" class="section level2">
@@ -384,14 +370,19 @@ experiment, we used a cross-validation technique to approximate the best regress
 <div id="data-and-vizualisation" class="section level3">
 <h3>Data and Vizualisation</h3>
        <h4>Algerian Forest Fires</h4>
-<pre class="r"><code>#I important the dataset from my saved csv file
+<pre class="r"><code>#Importing the dataset from saved csv file
 Algerian_forest_fires_dataset1 &lt;- read.csv(file = &quot;~/Downloads/Algerian_forest_fires_dataset1.csv&quot;)
 #I take the subset so where the day month and year are excluded
 
 Bejaia.dataset &lt;- subset(Algerian_forest_fires_dataset1, select = -c(day, month, year))
+Bejaia.dataset
 
-Bejaia.dataset</code></pre>
-<pre><code>##     Temperature RH Ws Rain FFMC  DMC    DC  ISI  BUI  FWI Classes
+#Display dataset...
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">
+##     Temperature RH Ws Rain FFMC  DMC    DC  ISI  BUI  FWI Classes
 ## 1            29 57 18  0.0 65.7  3.4   7.6  1.3  3.4  0.5       0
 ## 2            29 61 13  1.3 64.4  4.1   7.6  1.0  3.9  0.4       0
 ## 3            26 82 22 13.1 47.1  2.5   7.1  0.3  2.7  0.1       0
@@ -513,7 +504,12 @@ Bejaia.dataset</code></pre>
 ## 119          31 66 11  0.0 85.7  8.3  24.9  4.0  9.0  4.1       1
 ## 120          32 47 14  0.7 77.5  7.1   8.8  1.8  6.8  0.9       0
 ## 121          26 80 16  1.8 47.4  2.9   7.7  0.3  3.0  0.1       0
-## 122          25 78 14  1.4 45.0  1.9   7.5  0.2  2.4  0.1       0</code></pre>
+## 122          25 78 14  1.4 45.0  1.9   7.5  0.2  2.4  0.1       0
+</span></span>
+</code></pre></div>
+</details>
+</code></pre>
+
 <pre class="r"><code>str(Bejaia.dataset)</code></pre>
 <pre><code>## &#39;data.frame&#39;:    122 obs. of  11 variables:
 ##  $ Temperature: int  29 29 26 25 27 31 33 30 25 28 ...
@@ -772,9 +768,6 @@ legend(&quot;bottomright&quot;, c(&quot;h=5.928571&quot;, &quot;h=20&quot;, &quo
 
 </div>
        
-<div id="statistical-modeling" class="section level3">
-<h3>Statistical Modeling</h3>
-</div>
 <div id="conlusion" class="section level3">
 <h3>Conlusion</h3>
 </div>
@@ -807,8 +800,6 @@ Statistical Software, 15(9). https://doi.org/10.18637/jss.v015.i09</p>
        <p>Kauermann, G., & Opsomer, J. D. (2004). Generalized cross-validation for bandwidth selection of
 backfitting estimates in generalized additive models. Journal of Computational and Graphical
               Statistics, 13(1), 66-89.</p>
-<p>Demir, S., & Toktamiş, Ö. (2010). On the adaptive Nadaraya-Watson kernel regression
-              estimators. <i>Hacettepe Journal of Mathematics and Statistics</i>, 39(3), 429-437.</p>
        <p>
 </div>
 
