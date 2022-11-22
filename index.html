@@ -251,15 +251,15 @@ Kernel Trick. A Kernel trick is a method where a non-linear data is projected on
 dimension space to make it easier to classify the data where it could be linearly divided by a
 plane (Karatzoglou, Meyer, & Hornik, 2006). SVMs use an implicit mapping Φ of the input data 
               into a high-dimensional feature space. The common classification model is</p>
-                      <img src="svm.png" alt="SVM" class="center" width="200" height="45">
+                      <img src="svm.png" alt="SVM" class="center" width="225" height="60">
        <p class="center"><i>Where b is the bias of the model.</i></p>
        <p>Solving the subsequent constrained optimization and creating decision boundary, we get</p>
                              <img src="svm2.png" alt="SVM" class="center" width="350" height="120">
-       <img src="svm3.png" alt="SVM" class="center" width="155" height="35">
+       <img src="svm3.png" alt="SVM" class="center" width="185" height="42">
        <p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers.
 Firstly, we need to find decision boundary for linearly separable plane and then solve with
               Lagrange multipliers. We get following equation,</p>
-              <img src="svm4.png" alt="SVM" class="center" width="360" height="140">
+              <img src="svm4.png" alt="SVM" class="center" width="400" height="145">
 <p>As there are different types of kernel function for different type of data, picking right kernel and
        parameters can be the challenge for SVMs.</p>
        <h3>Types of Kernel function</h3>
