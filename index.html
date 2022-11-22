@@ -304,6 +304,83 @@ degree of more than one. It helps on learning of non-linear models and suitable 
 
        
 </div>
+<div id="Analysis" class="section level2">
+       <h2>Analysis and Results</h2>
+       <h3>Experiments<h3>
+              <p>3.1 Experiment Background</p>
+              <p>Attempting to obtain the best estimated curve for Nadarayan-Watson Kernel estimator
+requires an input of the bandwidth h. A higher bandwidth will include more data points for the
+weighted average, while still giving the highest weights to the closer data points. Choosing a
+bandwidth is vital in finding a function estimate that fits the observed sample of data while
+providing a smooth function estimate (Helwig). Too small a bandwidth, and the estimated curve
+will overfit the data, which will negatively affect the accuracy of predicting future observations.
+Too large a bandwidth, and the estimated curve will underfit the data, which results in the
+estimated curve missing the true relationship between the input values. The question to
+analyze becomes clear; How do we optimize the bandwidth, so our estimated curve minimizes
+                     the negative tradeoff effects?</p>
+              <p>We also wish to examine the impact of kernels for classification, specifically kernel SVM models.
+We will use R programming language to design four kernel SVM models on the Algerian Forest
+Fire dataset: linear, polynomial, radial basis function, and sigmoid. We will discover the optimal
+parameter for each kernel using a tuning parameter in R. Once we obtain the best models for
+each kernel, we will run a comparative analysis to determine which is superior in its accuracy on
+the testing set.</p>
+              <p>3.2 Data sets for experimentation</p>
+              <ul>
+                     <li><i>Cars</i> dataset provides a 1920’s dataset containing 50 observations. There are two
+variables in the dataset: the X variable is the speed of cars, and the Y variable is the
+                            distance taken to stop(Ezekiel).</li>
+                     <li><i>Algerian Forest Fires</i> Dataset for the Bajaia region located in the northeast of Algeria,
+which includes 122 observations. The dataset has a binary response variable that
+indicates whether the Bajai region of Algeria experienced no fire = 0, or a fire = 1. The
+dataset contains 10 explanatory variables including temperature, relative humidity,
+wind speed, rain, fine fuel moisture code, duff moisture code, drought code, initial
+spread index, and fire weather index (Dua).</li>
+              </ul>
+              
+              <h3>Results</h3>
+              <p>For the Algerian Forest Fires Dataset, we will split the data into training and testing sets.
+Specifically, 75% of the data will go into the training set, while the remaining 25% will be used
+                     for testing the accuracy of the model.</p>
+              <p>4.1 Cars Example</p>
+              <p>Using the cars dataset in R, we obtain four plots in Figure 4.1. Each regression line is obtained
+using the ksmooth() function. The top left figure is a scatter plot between the predictor variable
+speed and the response variable stopping distance. The data appears to be normal when speed
+< 15. However, the data when speed > 15 appears to have a non-linear relationship with
+stopping distance. Since the data illustrates a non-linear relationship, nonparametric kernel
+regression is used to determine the regression curve. The figure on the top right shows the
+regression curve estimation with a bandwidth = 20. Although this result produces a stable line
+with little variance, the bias tradeoff is too high as the line does not fit the data well. The figure
+on the bottom left shows the regression curve estimation with a bandwidth = 1. The line is too
+       rigid and overfits the data.</p>
+                     <img src="bandwidth.png" alt="Bandwidth Comparison" class="center">
+              <p>Figure 1: The graph of the data with different bandwidths(Helwig)</p>
+              <br />
+              <p>The optimal bandwidth is obtained through generalized cross-validation using the np.gcv()
+function with a selected “gaussian” kernel (Kauermann). The generalized cross-validation
+procedure gives us an optimal bandwidth value of 5.928571. The bottom right figure shows the
+regression curve estimation with the obtained optimal bandwidth = 5.928571. The line now is
+smooth and fits the data appropriately. Figure 4.2 shows the three chosen bandwidths
+                     together.</p>
+                                <img src="bandwidth2.png" alt="Bandwidth Comparison" class="center">
+              <p>Figure 4.2: The combined graph of the different bandwidths(Helwig)</p>
+              <br />
+              
+              <p>The experiment on real world data is a fruitful process to analyze the impact the effect of
+choosing an appropriate bandwidth. In the car’s dataset, we have no assumptions about the
+data, so we needed to figure out a bandwidth that optimizes the variance-bias tradeoff. Too
+small a bandwidth and we have too much variance. Too large a bandwidth and we don’t cover
+all the data. Therefore, finding the optimal bandwidth is crucial in determining the best
+regression curve. Even though R uses a default bandwidth of h = 0.5, that does not indicate that
+the optimal bandwidth is so. There is no uniform way to obtain this metric, and in our
+experiment, we used a cross-validation technique to approximate the best regression
+                     curve(Kauermann).</p>
+              
+              
+
+                     
+              
+              
+</div>
 <div id="data-and-vizualisation" class="section level3">
 <h3>Data and Vizualisation</h3>
 <pre class="r"><code>#I important the dataset from my saved csv file
@@ -627,20 +704,31 @@ plot(kde)</code></pre>
 
 <p>Dudek, G., & Pelka, P. (2017, May). Medium-term electric energy demand forecasting using Nadaraya-
 Watson estimator. In <i>2017 18th International Scientific Conference on Electric Power Engineering</p>
+       <p>Demir, S., & Toktamiş, Ö. (2010). On the adaptive Nadaraya-Watson kernel regression
+              estimators. Hacettepe Journal of Mathematics and Statistics, 39(3), 429-437.</p>
+       <p>Dua, D. and Graff, C. (2019). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA:
+              University of California, School of Information and Computer Science.</p>
 
              <p> (EPE)</i> (pp. 1-6). IEEE.
 Blundell, R., & Duncan, A. (1998). Kernel regression in empirical microeconomics. <i>Journal of Human
               Resources</i>, 62-87.</p>
+       <p>Ezekiel, M. (1930) Methods of Correlation Analysis. Wiley.</p>
 <p>Wainer, J., & Cawley, G. (2017). Empirical evaluation of resampling procedures for optimising SVM
               hyperparameters. <i>Journal of Machine Learning Research</i>, 18(15), 1-35.</p>
        <p>
               Vidvan, T. (2020, March 13). SVM Kernel Functions - 'SVM knowledge. Retrieved from
 TechVidvan website: https://techvidvan.com/tutorials/svm-kernel-functions/
        </p>
+       <p>Heiwig, N.(2021). Nonparametric Regression (Smoothers) in R. Department of Psychology & School of
+              Statistics University of Minnesota.</p>
        <p>Karatzoglou, A., Meyer, D., & Hornik, K. (2006). Support Vector Machines inR. Journal of
 Statistical Software, 15(9). https://doi.org/10.18637/jss.v015.i09</p>
+       <p>Kauermann, G., & Opsomer, J. D. (2004). Generalized cross-validation for bandwidth selection of
+backfitting estimates in generalized additive models. Journal of Computational and Graphical
+              Statistics, 13(1), 66-89.</p>
 <p>Demir, S., & Toktamiş, Ö. (2010). On the adaptive Nadaraya-Watson kernel regression
               estimators. <i>Hacettepe Journal of Mathematics and Statistics</i>, 39(3), 429-437.</p>
+       <p>
 </div>
 
 <script>
