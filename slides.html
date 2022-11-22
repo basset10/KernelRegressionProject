@@ -376,7 +376,7 @@
 <p><img data-src="https://basset10.github.io/KernelRegressionProject/svm2.png" width="399"></p>
 </figure>
 </div>
-<p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers. Firstly, we need to find decision boundary for linearly separable plane and then solve with Lagrange multipliers. We get following equation,</p>
+<p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers. Firstly, we need to find decision boundary for linearly separable plane and then solve with Lagrange multipliers. We get the following equation,</p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="https://basset10.github.io/KernelRegressionProject/svm4.png" width="546"></p>
@@ -426,12 +426,16 @@
 </section>
 <section id="results-1" class="slide level2">
 <h2>Results</h2>
-<p>Using the cars dataset in R, we obtain four plots in Figure 4.1. Each regression line is obtained using the ksmooth() function. The top left figure is a scatter plot between the predictor variable speed and the response variable stopping distance. The data appears to be normal when speed &lt; 15. However, the data when speed &gt; 15 appears to have a non-linear relationship with stopping distance. Since the data illustrates a non-linear relationship, nonparametric kernel regression is used to determine the regression curve. The figure on the top right shows the regression curve estimation with a bandwidth = 20. Although this result produces a stable line with little variance, the bias tradeoff is too high as the line does not fit the data well. The figure on the bottom left shows the regression curve estimation with a bandwidth = 1. The line is too rigid and overfits the data.</p>
+<p>Using the cars dataset in R, we obtain four plots in Figure 4.1. Each regression line is obtained using the ksmooth() function.</p>
 </section>
 <section id="results-2" class="slide level2">
 <h2>Results</h2>
 
 <img data-src="https://basset10.github.io/KernelRegressionProject/bandwidth.png" class="r-stretch"><p>Figure 1: The graph of the data with different bandwidths(Helwig)</p>
+</section>
+    <section id="results-22" class="slide level2">
+<h2>Results</h2>
+<p>The top left figure is a scatter plot between the predictor variable speed and the response variable stopping distance. The data appears to be normal when speed &lt; 15. However, the data when speed &gt; 15 appears to have a non-linear relationship with stopping distance. Nonparametric kernel regression is used to determine the regression curve. The figure on the top right shows the regression curve estimation with a bandwidth = 20. Although this result produces a stable line with little variance, the bias tradeoff is too high as the line does not fit the data well. The figure on the bottom left shows the regression curve estimation with a bandwidth = 1. The line is too rigid and overfits the data.</p>
 </section>
 <section id="results-3" class="slide level2">
 <h2>Results</h2>
@@ -444,14 +448,21 @@
 </section>
 <section id="results-5" class="slide level2">
 <h2>Results</h2>
-<p>The experiment on real world data is a fruitful process to analyze the impact the effect of choosing an appropriate bandwidth. In the car's dataset, we have no assumptions about the data, so we needed to figure out a bandwidth that optimizes the variance-bias tradeoff. Too small a bandwidth and we have too much variance. Too large a bandwidth and we don't cover all the data. Therefore, finding the optimal bandwidth is crucial in determining the best regression curve. Even though R uses a default bandwidth of h = 0.5, that does not indicate that the optimal bandwidth is so. There is no uniform way to obtain this metric, and in our experiment, we used a cross-validation technique to approximate the best regression curve(Kauermann).</p>
+<p>The experiment on real world data is a fruitful process to analyze the impact the effect of choosing an appropriate bandwidth. In the car's dataset, we have no assumptions about the data, so we needed to figure out a bandwidth that optimizes the variance-bias tradeoff. Too small a bandwidth and we have too much variance. Too large a bandwidth and we don't cover all the data. Therefore, finding the optimal bandwidth is crucial in determining the best regression curve. </p>
+<div class="footer footer-default">
+
+</div>
+</section>
+    <section id="results-6" class="slide level2">
+<h2>Results</h2>
+<p>Even though R uses a default bandwidth of h = 0.5, that does not indicate that the optimal bandwidth is so. There is no uniform way to obtain this metric, and in our experiment, we used a cross-validation technique to approximate the best regression curve(Kauermann).
+</p>
 <div class="footer footer-default">
 
 </div>
 </section>
     </div>
   </div>
-
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="Slides2_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
