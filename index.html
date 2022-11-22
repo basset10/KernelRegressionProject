@@ -228,12 +228,12 @@ for estimating unknown parameters of a regression function and is suitable for t
 
 where the data comes from a joint probability distribution function, f (x, y). The non-
 parametric regression model for NW method is</p>
-       <img src="NWNP1.png" alt="NadarayaWatson" class="center" width="90" height="50">
-       <img src="NWNP2.png" alt="NadarayaWatson" class="center" width="90" height="50">
+       <img src="NWNP1.png" alt="NadarayaWatson" class="center" width="60" height="40">
+       <img src="NWNP2.png" alt="NadarayaWatson" class="center" width="60" height="40">
        <p>Where m (.) is unknown, Yi is the sum of the regression function value m(Xi) for Xi andpredicted error value is zero.
 f (x, y) is the joint density function of (X, Y) and f(x) is the marginal density function of f(x). An
 estimation of this regression function can be taken as</p>  
- <img src="Estimation.png" alt="Regression" class="center" width="140" height="80">
+ <img src="Estimation.png" alt="Regression" class="center" width="120" height="75">
        <p>Using kernel estimation k(.), we have nonparametric kernel estimation of regression.</p>
         <img src="estimation2.png" alt="Regression" class="center" width="200" height="70">
        <p>Using bivariate kernel function and substituting different smoothing parameters (h1, h2) with
@@ -256,7 +256,7 @@ plane (Karatzoglou, Meyer, & Hornik, 2006). SVMs use an implicit mapping Φ of t
        <p class="center"><i>Where b is the bias of the model.</i></p>
        <p>Solving the subsequent constrained optimization and creating decision boundary, we get</p>
                              <img src="svm2.png" alt="SVM" class="center" width="200" height="100">
-       <img src="svm3.png" alt="SVM" class="center" width="60" height="30">
+       <img src="svm3.png" alt="SVM" class="center" width="50" height="30">
        <p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers.
 Firstly, we need to find decision boundary for linearly separable plane and then solve with
               Lagrange multipliers. We get following equation,</p>
@@ -268,25 +268,25 @@ Firstly, we need to find decision boundary for linearly separable plane and then
        <p>1. Linear Kernel Function</p>
        <p>The linear kernel is the basic and useful when dealing with large sparse data vectors. Linear
               Kernel is the inner product of two vectors. The equation is:</p>
-                     <img src="linearkernel.png" alt="Linear Kernel" class="center" width="100" height="50">
+                     <img src="linearkernel.png" alt="Linear Kernel" class="center" width="80" height="50">
        <p class="center"><i>Where c is the constant.</i></p>
        <p>2. Polynomial Kernel Function</p>
        <p>The polynomial kernel is commonly used function with SVMs. It represents kernels with a
 degree of more than one. It helps on learning of non-linear models and suitable for image
               processing. (Vidvan, 2020). There are two types of polynomials:</p>
        <p>Homogenous Polynomial Kernel Function</p>
-                            <img src="Homogenous.png" alt="Homogenous" class="center" width="100" height="50" >
+                            <img src="Homogenous.png" alt="Homogenous" class="center" width="80" height="50" >
         <p class="center"><i>Where d is the degree of the polynomial.</i></p>
        <p>Inhomogeneous Polynomial Kernel Function</p>
-                                   <img src="inhomogenous.png" alt="Inhomogenous" class="center" width="100" height="50">
+                                   <img src="inhomogenous.png" alt="Inhomogenous" class="center" width="80" height="50">
         <p class="center"><i>Where c is a constant and d is degree of polynomial.</i></p>
        <p>3. Gaussian RBF Kernel Function</p>
        <p>Gaussian RBF is used when there is no prior knowledge about the data.</p>
-                                          <img src="Gaussian.png" alt="Gaussian" class="center" width="100" height="50">
+                                          <img src="Gaussian.png" alt="Gaussian" class="center" width="80" height="50">
         <p class="center"><i>Where γ is parameter to optimize.</i></p>
        <p>4. Sigmoid Kernel Function</p>
        <p>This is mainly used in neural networks. We can show this as:</p>
-                                                 <img src="Sigmoid.png" alt="Sigmoid" class="center" width="100" height="50">
+                                                 <img src="Sigmoid.png" alt="Sigmoid" class="center" width="80" height="50">
                <p class="center"><i>Where h and c are parameters to optimize.</i></p>
 
 
