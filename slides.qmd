@@ -47,7 +47,6 @@ Where b is the bias of the model.
 Solving the subsequent constrained optimization and creating decision boundary, we get
 
 ![](https://basset10.github.io/KernelRegressionProject/svm2.png){fig-align="center" width="399"}
-
 As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers. Firstly, we need to find decision boundary for linearly separable plane and then solve with Lagrange multipliers. We get following equation,
 
 ![](https://basset10.github.io/KernelRegressionProject/svm4.png){fig-align="center" width="546"}
