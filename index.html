@@ -362,10 +362,62 @@ the optimal bandwidth is so. There is no uniform way to obtain this metric, and 
 experiment, we used a cross-validation technique to approximate the best regression
                      curve(Kauermann).</p>
               
-              
-
-                     
-              
+  <p>4.3 Algerian Forest Fire classification Example</p>
+<p>In this section we will examine the four different kernel options in R. We will obtain the training  and testing accuracy for the models without tuning first. </p>  
+<h4>Linear Kernel</h4>
+<img src="linearkernel2.png" alt="Linear Kernel" class="center">
+<p>For the linear model training data, there are three incorrectly classified fires when there was no
+fire present. In the linear model testing data, there are also three incorrectly classified fires
+when there was no fire present.</p>
+<p>We calculate a training accuracy of 1 – 3/91 = 96.7%</p>
+<p>We calculate a testing accuracy of 1 – 3/31 = 90.3%</p>
+<br />
+<h4>RBF</h4>
+<img src="radial.png" alt="Radial" class="center">
+<img src="radial2.png" alt="Radial" class="center">
+<p>Training accuracy is 1 – 3/91 = 96.7%</p>
+<p>Testing accuracy is 1 – 3/31 = 90.3%</p>
+<br />
+<h4>Polynomial Kernel</h4>
+<img src="polynomial.png" alt="Polynomial" class="center">
+<p>Training accuracy is 1 – 6/91 = 93.4%</p>
+<p>Testing accuracy is 1 – 5/31 = 83.9%</p>
+<br />
+<h4>Sigmoid Kernel</h4>
+<img src="sigmoid2.png" alt="Sigmoid" class="center">
+<img src="sigmoid3.png" alt="Sigmoid" class="center">
+<p>Training accuracy is 1 – 4/91 = 95.6%</p>
+<p>Testing accuracy is 1 – 4/31 = 87.1%</p>
+<br />
+<p>4.3.1 Parameter Tuning</p>
+<p>Using the tune() function, we will find the optimal regularization parameter(cost), and the
+optimal parameter governing the sensitivity of the kernel (γ). We will then recalculate the new
+training and testing accuracies for each kernel SVM model.</p>
+<h4>Linear Kernel</h4>
+<img src="linear1.png" alt="LinearTune" class="center">
+<p>Training accuracy is 1 – 91/91 = 100%</p>
+<p>Testing accuracy is 1 – 1/31 = 96.7%</p>
+<br />
+<h4>RBF</h4>
+<img src="rbfTune.png" alt="RBFTune" class="center">
+<p>Training accuracy is 1 – 5/91 = 94.5%</p>
+<p>Testing accuracy is 1 – 2/31 = 93.5%</p>
+<br />
+<h4>Polynomial Kernel</h4>
+<img src="polynomialtune.png" alt="PolynomialTune" class="center">
+<p>Training accuracy is 1 – 5/91 =94.5%</p>
+<p>Testing accuracy is 1 – 1/31 = 96.7%</p>
+<br />
+<h4>Sigmoid Kernel</h4>
+<img src="sigmoidtune.png" alt="SigmoidTune" class="center">
+<p>Training accuracy is 1 – 6/91 = 93.4%</p>
+<p>Testing accuracy is 1 – 1/31 = 96.7%</p>
+<br />
+<p>The following is a report on the best models for each kernel, including the training accuracy,
+testing accuracy, and the percentage change from its previous model before tuning.</p>
+<p class = "center">Table 1: Comparison Table</p>
+<img src="tunetable.png" alt="Table 1" class="center">
+            
               
 </div>
 <div id="data-and-vizualisation" class="section level3">
@@ -801,7 +853,8 @@ Statistical Software, 15(9). https://doi.org/10.18637/jss.v015.i09</p>
        <p>Kauermann, G., & Opsomer, J. D. (2004). Generalized cross-validation for bandwidth selection of
 backfitting estimates in generalized additive models. Journal of Computational and Graphical
               Statistics, 13(1), 66-89.</p>
-       <p>
+       <p>Wainer, J., & Cawley, G. (2017). Empirical evaluation of resampling procedures for optimising SVM
+hyperparameters. Journal of Machine Learning Research, 18(15), 1-35.</p>
 </div>
 
 <script>
