@@ -219,32 +219,72 @@ the four different kernel functions provided in R.</p>
 </div>
 <div id="methods" class="section level2">
 <h2>Methods</h2>
-<p>The Nadaraya-Watson Kernel estimator, used in this study, is written as follows:
+
        
-       </p>
-       <img src="NadarayaWatson.png" alt="NadarayaWatson" class="center">
-       <p>Where <i>x</i> and <i>y</i> represent the pair of variables for which a non-linear relationship is tested.
-       <span class="math inline">\(K_h\)</span> represents a weighting kernel with bandwidth <i>h</i>. The bandwidth value will affect the smoothing of the model and is estimated by balancing the bias-variance tradeoff
-       of the model. There are several methods of accomplishing this. One possible method is through unbiased cross validation, as shown below:</p>
-      <img src="ubcv2.png" alt="UnbiasedCrossValidation" class="center">
-       <p>This equation takes the average squared error of an observed <i>y</i> value minus a predictive value where value <i>i</i> is excluded (leave-one-out). The optimal bandwidth value will be determined through the lowest resulting error value of the formula. </p>
-       <p>A kernel SVM is used in the second part of this study. Sensitivity and regularization parameters, 
-              <i>c</i> and γ, will be determined through the use of k-fold cross validation. This process is further broken down into four steps (Brownlee, 2020):</p>
-       <ol>
-              <li>Randomize the order of the dataset</li>
-              <li>Divide the dataset into <i>k</i> groups</li>
-              <li>For each group:</li>
-              <ul>
-                     <li>Isolate the selected group as the testing set</li>
-                     <li>Designate the remaining groups as the training set</li>
-                     <li>Fit a model using the training set and evaluate using the testing set</li>
-              </ul>
-              <li>Retain and compare each model's evaluation score</li>
-       </ol>
+            <h3>2.1 Nadarayan-Watson Kernel estimator</h3>
+       <p>The Nadarayan-Watson kernel estimator is an important nonparametric kernel estimator of a
+regression function which is achieved by using a fixed bandwidth. The NW method is a method
+for estimating unknown parameters of a regression function and is suitable for the situation
+
+where the data comes from a joint probability distribution function, f (x, y). The non-
+parametric regression model for NW method is</p>
+       <img src="NWNP1.png" alt="NadarayaWatson" class="center">
+       <img src="NWNP2.png" alt="NadarayaWatson" class="center">
+       <p>Where m (.) is unknown, Yi is the sum of the regression function value m(Xi) for Xi andpredicted error value is zero.
+f (x, y) is the joint density function of (X, Y) and f(x) is the marginal density function of f(x). An
+estimation of this regression function can be taken as</p>  
+ <img src="Estimation.png" alt="Regression" class="center">
+       <p>Using kernel estimation k(.), we have nonparametric kernel estimation of regression.</p>
+        <img src="estimation2.png" alt="Regression" class="center">
+       <p>Using bivariate kernel function and substituting different smoothing parameters (h1, h2) with
+single fixed smoothing parameter (h) we get the NW kernel estimator of regression.</p>
+               <img src="regression.png" alt="Regression" class="center">
+       <p>Smoothing level of estimation also known as bandwidth (h) plays a very important role in the performance of the kernel estimators. 
+              The commonly used methods for deciding h are cross-
+              validation, penalized functions, and bootstrap. (Demir & Toktamiş, 2010)</p>
+       <h3>2.2 Support Vector Machines</h3>
+       <p>The idea of SVM was established in 1958 by Rosenblatt. SVM is one of the popular and efficient
+classification and regression methods which separates hyperplane with maximum margin in
+two-dimensional space which are linearly separable. The one that maximizes the distance to
+the closest data points from both classes is called hyperplane with maximum margin. However,
+for a non-linear data SVM finds it difficult to classify the data. That’s where we can use the
+Kernel Trick. A Kernel trick is a method where a non-linear data is projected onto a higher
+dimension space to make it easier to classify the data where it could be linearly divided by a
+plane (Karatzoglou, Meyer, & Hornik, 2006). SVMs use an implicit mapping Φ of the input data 
+              into a high-dimensional feature space. The common classification model is</p>
+                      <img src="svm.png" alt="SVM" class="center">
+       <p>Where <i>b</i> is the bias of the model.</p>
+       <p>Solving the subsequent constrained optimization and creating decision boundary, we get</p>
+                             <img src="svm2.png" alt="SVM" class="center">
+       <img src="svm3.png" alt="SVM" class="center">
+       <p>As it is constrained optimization problem it needs Lagrangian formula or Lagrangian multipliers.
+Firstly, we need to find decision boundary for linearly separable plane and then solve with
+              Lagrange multipliers. We get following equation,</p>
+              <img src="svm4.png" alt="SVM" class="center">
+<p>As there are different types of kernel function for different type of data, picking right kernel and
+       parameters can be the challenge for SVMs.</p>
+       <h3>Types of Kernel function</h3>
+       <p>There are five main types of kernels which are listed below with equations.</p>
+       <p>1. Linear Kernel Function</p>
+       <p>The linear kernel is the basic and useful when dealing with large sparse data vectors. Linear
+              Kernel is the inner product of two vectors. The equation is:</p>
+                     <img src="linearkernel.png" alt="Linear Kernel" class="center">
+       <p class="center"><i>Where c is the constant.</i></p>
+       <p>2. Polynomial Kernel Function</p>
+       <p>The polynomial kernel is commonly used function with SVMs. It represents kernels with a
+degree of more than one. It helps on learning of non-linear models and suitable for image
+              processing. (Vidvan, 2020). There are two types of polynomials:</p>
+       <p>Homogenous Polynomial Kernel Function</p>
        
-       <p>The optimal value of k is that of which the model's variance is minimized. There is no formal choice for this value, and typically k=10 is used.</p>
        
-       <p>These methods are examined and executed through the use of R code in the following section.</p>
+       
+       
+
+
+       
+
+
+
        
 </div>
 <div id="data-and-vizualisation" class="section level3">
