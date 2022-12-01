@@ -1,0 +1,312 @@
+---
+title: "Kernel Regression"
+author : Kyle Del Balso, Swornim Bhandari, Zack Starrett
+format:
+  revealjs: 
+    theme: dark
+editor: visual
+---
+
+## Introduction
+
+-   Linear vs. non-linear data
+-   How can non-linear data be processed?
+-   Kernel regression as a non-parametric approach to non-linear data
+
+## Introduction
+
+-   Kernel Smoothing
+-   Kernel Estimators
+-   Support Vector Machines and Kernel SVMs
+
+## Introduction
+
+-   This report represents a two-part study:
+    -   How to determine the optimal parameters for a kernel estimator
+
+    -   How to fine-tune the parameters for a kernel SVM
+-   We conclude with a comparative analysis of the four different kernel functions provided in R.
+
+## Methods (Kernel Regression Estimation) {style="font-size: 30"}
+
+-   ::: {style="font-size: 23px;"}
+    Nadaraya-Watson kernel estimator where kernel regression is used to find mean function of any shape data.
+    :::
+
+-   ::: {style="font-size: 23px;"}
+    Determine unknown parameters of regression function
+    :::
+
+    ::: {style="text-align: center; font-size: 18px"}
+    ![](Presentation_files/1.png){width="380"}
+
+    For i = (1, ..., n)
+    :::
+
+-   ::: {style="font-size: 20px"}
+    NW  estimates value of m as a locally weighted average using kernel as weighting function where  k is kernel with bandwidth parameter (h)
+    :::
+
+    ::: {style="text-align: center"}
+    [![](Presentation_files/2.png)]{style="text-align: center"}
+    :::
+
+## Methods (Support Vector Machine)
+
+-   ::: {style="font-size: 33px"}
+    SVM established in 1958 by Frank Rosenblatt
+    :::
+
+-   ::: {style="font-size: 33px"}
+    Popular classification method for finding pattern which are used for classification and regression analysis
+    :::
+
+-   ::: {style="font-size: 33px"}
+    Based on training data the algorithm tries to find the optimal hyperplane which can be used to classify new data.
+    :::
+
+-   ::: {style="font-size: 33px"}
+    Difficult to apply to non-linear data where we use Kernel trick
+    :::
+
+-   ::: {style="font-size: 33px"}
+    Data is mapped into a higher-dimensional feature space where it can be linearly divided by a plane.
+    :::
+
+## Types of Kernel Functions
+
+Linear Kernel
+
+-   ::: {style="font-size: 28px"}
+    Useful with large sparse data vectors
+    :::
+
+    ::: {style="text-align: center"}
+    ![](Presentation_files/3.png){width="247"}
+    :::
+
+    Polynomial Kernel
+
+-   ::: {style="font-size: 28px"}
+    Useful in learning of non-linear models and suitable for image processing.
+    :::
+
+    ::: {style="text-align: center"}
+    ![](Presentation_files/4.png)
+    :::
+
+## Types of Kernel Functions
+
+Gaussian RBF Kernel
+
+-   ::: {style="font-size: 28px"}
+    Used when there is no prior knowledge about the data
+    :::
+
+    ::: {style="text-align: center"}
+    ![](Presentation_files/GAUSS.png)
+    :::
+
+    Sigmoid Kernel
+
+-   ::: {style="font-size: 28px"}
+    Used mainly in neural networks
+    :::
+
+    ::: {style="text-align: center"}
+    ![](Presentation_files/5.png)
+    :::
+
+## Data Sets for Experimentation
+
+-   Cars Dataset
+    -   ::: {style="font-size: 22px"}
+        1920s dataset on cars containing 50 entries. There are two variables in the dataset:
+        :::
+
+        -   ::: {style="font-size: 22px"}
+            X: Speed of Car
+            :::
+
+        -   ::: {style="font-size: 22px"}
+            Y: Time to Stop
+            :::
+-   Algerian Forest Fires Dataset
+    -   ::: {style="font-size: 22px"}
+        2012 dataset on forest fires in Algeria containing 122 entries. The dataset contains:
+        :::
+
+        -   ::: {style="font-size: 22px"}
+            1 binary response variable that indicates if there was a fire or not, and
+            :::
+
+        -   ::: {style="font-size: 22px"}
+            10 explanatory variables including temperature, humidity, wind speed, rain, fine fuel moisture code, duff moisture code, drought code, initial spread index and fire weather index.
+            :::
+
+## Determining Linearity
+
+::: {style="font-size: 20px"}
+plot(cars\$speed, cars\$dist,
+
+xlab = "Speed", ylab = "Distances Taken to Stop")
+:::
+
+```{r}
+plot(cars$speed, cars$dist, 
+     xlab = "Speed", ylab = "Distances Taken to Stop")
+```
+
+## Examining Different Bandwidths
+
+::: {style="font-size: 20px"}
+nonpar.reg.largebw \<- ksmooth(cars\$speed, cars\$dist, kernel="normal", bandwidth=20)
+:::
+
+::: {style="text-align: center"}
+![](Presentation_files/7.png)
+:::
+
+::: {style="font-size: 19px"}
+Note: default bandwidth = 0.5
+:::
+
+## Examining Different Bandwidths
+
+::: {style="font-size: 20px"}
+nonpar.reg.smallbw \<- ksmooth(cars\$speed, cars\$dist, kernel="normal", bandwidth=1)
+:::
+
+::: {style="text-align: center"}
+![](Presentation_files/8.png)
+:::
+
+::: {style="font-size: 19px"}
+Note: default bandwidth = 0.5
+:::
+
+## Finding the Optimal Bandwidth Code
+
+::: {style="font-size: 30px"}
+Cars \<- data.matrix(cars)
+
+Cars.optimalvalue \<- np.gcv(data = Cars, h.seq=NULL, num.h = 50, estimator = "NW", kernel = "gaussian")
+
+Cars.optimalvalue\$h.opt
+:::
+
+## Analysis and Results (Cars Dataset)
+
+::: {style="text-align: center"}
+![](Presentation_files/9.png)
+:::
+
+## Data Preparation - Algerian Forest Fire Dataset
+
+1.  ::: {style="font-size: 22px"}
+    Bejaia.dataset \<- subset(Algerian_forest_fires_dataset1, select = -c(day, month, year))
+    :::
+
+2.  ::: {style="font-size: 22px"}
+    Bejaia.dataset\$Classes \<- factor(Bejaia.dataset\$Classes, levels = c(0,1))
+    :::
+
+3.  ::: {style="font-size: 22px"}
+    split \<- sample.split(Bejaia.dataset\$Classes, SplitRatio = 0.75)
+    :::
+
+    ::: {style="font-size: 22px"}
+    Bejaia_Train \<- subset(Bejaia.dataset, split == TRUE)
+    :::
+
+    ::: {style="font-size: 22px"}
+    Bejaia_Test \<- subset(Bejaia.dataset, split == FALSE)
+    :::
+
+4.  ::: {style="font-size: 22px"}
+    Bejaia_Train\[-11\] \<- scale(Bejaia_Train\[-11\])
+    :::
+
+    ::: {style="font-size: 22px"}
+    Bejaia_Test\[-11\] \<- scale(Bejaia_Test\[-11\])
+    :::
+
+## SVM Before Tuning Code
+
+::: {style="font-size: 26px"}
+linear.svm \<- svm(Classes\~., data = Bejaia_Train, kernel = <mark>'linear'</mark>)
+
+train.predictedvalues.linear \<- predict(linear.svm, newdata = Bejaia_Train\[-11\])
+
+test.predictedvalues.linear \<- predict(linear.svm, newdata = Bejaia_Test\[-11\])
+
+table1 = table(train.predictedvalues.linear,Bejaia_Train\$Classes)
+
+table2 = table(test.predictedvalues.linear,Bejaia_Test\$Classes)
+
+table1
+
+Table2
+
+Note: Cost:1 \# of Support Vectors:17
+:::
+
+## SVM Before Tuning Results
+
+::: {style="text-align: center"}
+![](Presentation_files/10.png)
+:::
+
+## SVM After Tuning Code
+
+::: {style="font-size: 26px"}
+svmModelTuning.out.linear \<- tune(svm, Classes\~., data = Bejaia_Train, kernel = <mark>"linear"</mark>, ranges = list(cost = c(0.001, 0.01, 0.1, 1, 5, 10, 100)),scale=TRUE)
+
+svmModel.linear \<- svmModelTuning.out.linear\$best.model
+
+svmModel.linear
+
+Train.predictedvalues.linear \<- predict(svmModel.linear, newdata = Bejaia_Train\[-11\])
+
+Test.predictedvalues.linear \<- predict(svmModel.linear, newdata = Bejaia_Test\[-11\])
+
+cm.lineartrain \<-table(Train.predictedvalues.linear,Bejaia_Train\$Classes)
+
+cm.lineartest \<- table(Test.predictedvalues.linear,Bejaia_Test\$Classes)
+
+cm.lineartrain
+
+Cm.lineartest Note: Cost: 100 \# of Support Vectors: 7
+:::
+
+## SVM After Tuning Results
+
+::: {style="text-align: center"}
+![](Presentation_files/11.png){width="886"}
+:::
+
+## Conclusion
+
+-   ::: {style="font-size: 28px"}
+    Bandwidth is important in finding the optimal estimated regression line
+    :::
+
+    -   ::: {style="font-size: 26px"}
+        Too small = overfitting the data which negatively affects prediction accuracy
+        :::
+
+    -   ::: {style="font-size: 26px"}
+        Too large = underfitting the data which misses true relationship of data
+        :::
+
+-   ::: {style="font-size: 28px"}
+    Kernel SVM Model helps classify if there was a fire or not given weather conditions for the Bejaia Region of Algeria
+    :::
+
+    -   ::: {style="font-size: 26px"}
+        Important to test out which kernel is the best for the given data
+        :::
+
+    -   ::: {style="font-size: 26px"}
+        Tuning the parameters provides more accuracy on the testing data
+        :::
